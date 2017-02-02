@@ -112,6 +112,8 @@ namespace Crystal.Profiler.Data
         /// </summary>
         public CyRect RectanglePixels { get; set; }
 
+        public List<CyOcrCharacter> IdentifyCharacters { get; set; }
+
         public ListCyProfileExtractor Extractors { get; set; }
 
         public bool Matches(CyProfileTemplate other)

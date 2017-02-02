@@ -40,6 +40,7 @@ namespace Crystal.Profiler.Adapter.FileSystem.UnitTests
                     SizePixels = new CySize(3000, 2000)
                 };
                 dummyProfile.Images.Add(dummyImage);
+                // TODO: Ocr Results
             }
 
             var dummyTemplate = new CyProfileTemplate
@@ -47,6 +48,8 @@ namespace Crystal.Profiler.Adapter.FileSystem.UnitTests
                 DestinationTable = "CustomerApplications",
                 Name = "Header"
             };
+
+            // TODO: Extractors
 
             // Create test files in the current folder
             ICyProfileAdapter adapter = new CyProfileAdapterFileSystem("");
