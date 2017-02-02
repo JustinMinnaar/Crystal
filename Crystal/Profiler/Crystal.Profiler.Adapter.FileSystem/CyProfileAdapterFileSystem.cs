@@ -1,5 +1,6 @@
 ﻿using Crystal.Profiler.Adapter;
 using Crystal.Profiler.Data;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -14,12 +15,14 @@ namespace Crystal.Provider.Adapter.FileSystem
     {
         protected string folder;
         private string ext = ".crystalprofile";
+        private FileFormat format;
 
         /// <summary>Stores the profiles in a specific folder using their names.</summary>
         /// <param name="folder"></param>
-        public CyProfileAdapterFileSystem(string folder)
+        public CyProfileAdapterFileSystem(string folder, FileFormat format = FileFormat.Xml)
         {
             this.folder = folder;
+            this.format = format;
         }
 
         public IList<CyProfileHeader> ListProfiles()
@@ -41,9 +44,17 @@ namespace Crystal.Provider.Adapter.FileSystem
             if (!File.Exists(filePath))
                 throw new FileNotFoundException(fileNameOnly);
 
-            var xmlSerializer = new XmlSerializer(typeof(CyProfile));
-            using (var stream = File.OpenRead(filePath))
-                return (CyProfile)xmlSerializer.Deserialize(stream);
+            if (format == FileFormat.Json)
+            {
+                var json = File.ReadAllText(filePath);
+                return (CyProfile)JsonConvert.DeserializeObject(json);
+            }
+            else
+            {
+                var xmlSerializer = new XmlSerializer(typeof(CyProfile));
+                using (var stream = File.OpenRead(filePath))
+                    return (CyProfile)xmlSerializer.Deserialize(stream);
+            }
         }
 
         public void SaveProfile(CyProfile profile)
@@ -54,9 +65,17 @@ namespace Crystal.Provider.Adapter.FileSystem
             if (!File.Exists(filePath))
                 File.Delete(filePath);
 
-            var xmlSerializer = new XmlSerializer(typeof(CyProfile));
-            using (var stream = File.OpenWrite(filePath))
-                xmlSerializer.Serialize(stream, profile);
+            if (format == FileFormat.Json)
+            {
+                var json = JsonConvert.SerializeObject(profile);
+                File.WriteAllText(filePath, json);
+            }
+            else
+            {
+                var xmlSerializer = new XmlSerializer(typeof(CyProfile));
+                using (var stream = File.OpenWrite(filePath))
+                    xmlSerializer.Serialize(stream, profile);
+            }
         }
     }
 }

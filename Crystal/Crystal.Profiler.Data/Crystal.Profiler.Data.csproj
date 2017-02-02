@@ -40,7 +40,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CrystalProfile.cs" />
+    <Compile Include="CyProfile.cs" />
     <Compile Include="CyProfileExtractor.cs" />
     <Compile Include="ListCyProfileExtractor.cs" />
     <Compile Include="ListCyProfileImage.cs" />

@@ -66,6 +66,10 @@
       <Project>{3CC70580-14D6-4F49-9C86-978C0A3F021D}</Project>
       <Name>Crystal.Profiler.Adapter.FileSystem</Name>
     </ProjectReference>
+    <ProjectReference Include="..\Crystal.Profiler.Adapter\Crystal.Profiler.Adapter.csproj">
+      <Project>{4180CA9B-6F4C-48A7-ABB2-575A5451EF04}</Project>
+      <Name>Crystal.Profiler.Adapter</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">
