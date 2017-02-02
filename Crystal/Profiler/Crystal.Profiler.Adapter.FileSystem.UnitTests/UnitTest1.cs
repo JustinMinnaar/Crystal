@@ -49,7 +49,7 @@ namespace Crystal.Profiler.Adapter.FileSystem.UnitTests
             };
 
             // Create test files in the current folder
-            var adapter = new CyProfileAdapterFileSystem("");
+            ICyProfileAdapter adapter = new CyProfileAdapterFileSystem("");
 
             // Save the profile to a file in the current folder
             adapter.SaveProfile(dummyProfile);

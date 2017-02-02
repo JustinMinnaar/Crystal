@@ -92,6 +92,8 @@ namespace Crystal.Profiler.Data
         }
     }
 
+    public enum CyProfileTemplateType { PageHeader, PageFooter, TableHeader, TableLine, TableFooter }
+
     [Serializable]
     public class CyProfileTemplate : IMatches<CyProfileTemplate>
     {
@@ -99,7 +101,16 @@ namespace Crystal.Profiler.Data
         public string Name { get; set; }
 
         [XmlAttribute]
+        public CyProfileTemplateType Type { get; set; }
+
+        [XmlAttribute]
         public string DestinationTable { get; set; }
+
+        /// <summary>
+        /// This is the area that the template covers. 
+        /// Additional templates may follow under this template.
+        /// </summary>
+        public CyRect RectanglePixels { get; set; }
 
         public ListCyProfileExtractor Extractors { get; set; }
 
