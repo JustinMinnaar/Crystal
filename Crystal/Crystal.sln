@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Profiler.Adapter.Fi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Profiler.Adapter.FileSystem.UnitTests", "Profiler\Crystal.Profiler.Adapter.FileSystem.UnitTests\Crystal.Profiler.Adapter.FileSystem.UnitTests.csproj", "{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Profiler.Provider", "Crystal.Profiler.Provider\Crystal.Profiler.Provider.csproj", "{2CD0FDDE-6149-466B-9E71-96D7635AFD64}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2CD0FDDE-6149-466B-9E71-96D7635AFD64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2CD0FDDE-6149-466B-9E71-96D7635AFD64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2CD0FDDE-6149-466B-9E71-96D7635AFD64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2CD0FDDE-6149-466B-9E71-96D7635AFD64}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -89,5 +95,6 @@ Global
 		{E1BC2E19-5405-4D17-AA82-FA4748ADFBFD} = {C4F3F51A-B35F-47EE-BC95-A4BD50E79552}
 		{3CC70580-14D6-4F49-9C86-978C0A3F021D} = {CBCB81EC-DD5E-4FFD-8CA1-1246E4DB3745}
 		{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4} = {CBCB81EC-DD5E-4FFD-8CA1-1246E4DB3745}
+		{2CD0FDDE-6149-466B-9E71-96D7635AFD64} = {CBCB81EC-DD5E-4FFD-8CA1-1246E4DB3745}
 	EndGlobalSection
 EndGlobal

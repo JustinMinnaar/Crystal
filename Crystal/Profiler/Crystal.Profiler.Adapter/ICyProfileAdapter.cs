@@ -10,7 +10,7 @@ namespace Crystal.Profiler.Adapter
     public interface ICyProfileAdapter
     {
         IList<CyProfileHeader> ListProfiles();
-        CyProfile LoadProfile(string Name);
+        CyProfile LoadProfile(string name);
         void SaveProfile(CyProfile profile);
     }
 }
