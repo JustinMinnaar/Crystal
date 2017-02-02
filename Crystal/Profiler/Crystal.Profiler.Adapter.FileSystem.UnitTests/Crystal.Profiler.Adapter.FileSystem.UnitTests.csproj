@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{540A83C4-89E1-4577-97C3-9EDBF6716C7C}</ProjectGuid>
+    <ProjectGuid>{47E585FD-C6E5-48AA-B6EA-828DCB1C6DC4}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Crystal.Data.UnitTests</RootNamespace>
-    <AssemblyName>Crystal.Data.UnitTests</AssemblyName>
+    <RootNamespace>Crystal.Profiler.Adapter.FileSystem.UnitTests</RootNamespace>
+    <AssemblyName>Crystal.Profiler.Adapter.FileSystem.UnitTests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -50,17 +50,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="CrystalSqlAdapterUnitTests.cs" />
+    <Compile Include="UnitTest1.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Crystal.Data\Crystal.Data.csproj">
-      <Project>{E521C8C2-8B4B-4269-92E1-31A0D0557D1A}</Project>
-      <Name>Crystal.Data</Name>
+    <ProjectReference Include="..\..\Crystal.Core\Crystal.Core.csproj">
+      <Project>{E3DB60A1-79AE-4D86-B7C1-8D5E7A312DD0}</Project>
+      <Name>Crystal.Core</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Crystal.Meta\Crystal.Meta.csproj">
-      <Project>{139723ae-43ca-4930-885b-75dbce94fbf2}</Project>
-      <Name>Crystal.Meta</Name>
+    <ProjectReference Include="..\..\Crystal.Profiler.Data\Crystal.Profiler.Data.csproj">
+      <Project>{4BDF06FE-CE8F-4A6D-9F0F-199C5F0C489E}</Project>
+      <Name>Crystal.Profiler.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Crystal.Profiler.Adapter.FileSystem\Crystal.Profiler.Adapter.FileSystem.csproj">
+      <Project>{3CC70580-14D6-4F49-9C86-978C0A3F021D}</Project>
+      <Name>Crystal.Profiler.Adapter.FileSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

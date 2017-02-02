@@ -1,0 +1,16 @@
+﻿using Crystal.Profiler.Data;
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Crystal.Profiler.Adapter
+{
+    public interface ICyProfileAdapter
+    {
+        IList<CyProfileHeader> ListProfiles();
+        CyProfile LoadProfile(string Name);
+        void SaveProfile(CyProfile profile);
+    }
+}

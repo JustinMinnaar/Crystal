@@ -27,5 +27,7 @@ namespace Crystal.Data
             var cn = new SqlConnection(sb.ToString());
             return new CrystalSqlDatabase(cn);
         }
+
+
     }
 }
