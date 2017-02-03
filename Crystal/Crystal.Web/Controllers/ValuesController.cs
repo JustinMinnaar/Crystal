@@ -4,13 +4,14 @@ using System.Web.Http;
 using Crystal.Profiler.Provider;
 using Crystal.Profiler.Adapter;
 using Crystal.Profiler.Data;
+using Crystal.Web.Models;
+using Crystal.Provider.Adapter.FileSystem;
 using Newtonsoft.Json;
 
 namespace Crystal.Web.Controllers {
-  [Authorize]
   public class ValuesController : ApiController {
-    private static ICyProfileAdapter adapter;
-    CProfileProvider CProfileProviderInstance = new CProfileProvider(adapter);
+    private static ICyProfileAdapter adapter = new CyProfileAdapterFileSystem("C:/storage/", FileFormat.Xml);
+    static CProfileProvider CProfileProviderInstance = new CProfileProvider(adapter);
 
     // GET api/values
     public IList<CyProfileHeader> Get(string authToken) {
@@ -23,8 +24,10 @@ namespace Crystal.Web.Controllers {
     }
 
     // POST api/values
-    public void Post(string authToken, [FromBody]string jsonProfile) {
-      CProfileProviderInstance.SaveProfiles(new Guid(authToken), JsonConvert.DeserializeObject<CyProfile>(jsonProfile));
+    public void Post([FromBody] PostProfile profile) {
+      var newProfile = JsonConvert.DeserializeObject<CyProfile>(profile.jsonProfile);
+      CProfileProviderInstance.SaveProfiles(new Guid(profile.authToken), newProfile);
     }
+
   }
 }
