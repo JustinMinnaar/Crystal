@@ -39,7 +39,7 @@ namespace Crystal.Profiler.Provider
         public void SaveProfiles(Guid sessionId, CyProfile  profile)
         {
             if (sessionId == Guid.Empty) throw new InvalidSessionException();
-
+            profile.Header.Status = CyProfileStatus.Design;
             adapter.SaveProfile(profile);
         }
     }
