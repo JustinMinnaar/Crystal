@@ -6,6 +6,7 @@ using Crystal.Profiler.Adapter;
 using Crystal.Profiler.Data;
 using Crystal.Web.Models;
 using Crystal.Provider.Adapter.FileSystem;
+using Newtonsoft.Json;
 
 namespace Crystal.Web.Controllers {
   public class ValuesController : ApiController {
@@ -24,7 +25,8 @@ namespace Crystal.Web.Controllers {
 
     // POST api/values
     public void Post([FromBody] PostProfile profile) {
-      CProfileProviderInstance.SaveProfiles(new Guid(profile.authToken), profile.Profile);
+      var newProfile = JsonConvert.DeserializeObject<CyProfile>(profile.jsonProfile);
+      CProfileProviderInstance.SaveProfiles(new Guid(profile.authToken), newProfile);
     }
 
   }
