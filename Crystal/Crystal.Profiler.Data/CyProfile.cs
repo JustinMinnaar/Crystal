@@ -100,11 +100,37 @@ namespace Crystal.Profiler.Data
         [XmlAttribute]
         public string Name { get; set; }
 
+        /// <summary>The classification for this profile is used to organise the profiles. 
+        /// For example, all profiles relating to 'warehousing' or 'suppliers'.</summary>
+        public string Classification { get; set; }
+
+        public DateTime CreatedOn { get; set; }
+
+        public Guid CreatedByGuid { get; set; }
+
+        public List<CyProfileExtractor> Extractors { get; set; }
+
+        /// <summary>The image that was used to define this template.</summary>
+        public string ImageName { get; set; }
+
+        /// <summary>
+        /// This becomes true when the user publishes the profile.
+        /// This allows the profiler to use the profile in the system.
+        /// It is false while the profile is being developed.
+        /// </summary>
+        public bool IsActive { get; set; }
+
         [XmlAttribute]
         public CyProfileTemplateType Type { get; set; }
 
         [XmlAttribute]
         public string DestinationTable { get; set; }
+        
+        /// <summary>The characters required to uniquely identify the section, which are usually ignored by the extractors.</summary>
+        public List<CyOcrCharacter> IdentifyCharacters { get; set; }
+
+        /// <summary>For optimisation, the identification characters required to uniquely identify that the section is up-side-down.</summary>
+        public List<CyOcrCharacter> IdentifyCharactersUpSideDown { get; set; }
 
         /// <summary>
         /// This is the area that the template covers. 
@@ -112,14 +138,27 @@ namespace Crystal.Profiler.Data
         /// </summary>
         public CyRect RectanglePixels { get; set; }
 
-        public List<CyOcrCharacter> IdentifyCharacters { get; set; }
-
-        public ListCyProfileExtractor Extractors { get; set; }
+        /// <summary>
+        ///   The maximum number of times that this section can repeat on a page. 
+        ///   For each occurrence, the ID characters and extractors are tested.
+        /// </summary>
+        public int RepeatMaximum { get; set; }
 
         public bool Matches(CyProfileTemplate other)
         {
-            if (DestinationTable != other.DestinationTable) return false;
-            if (Name != other.Name) return false;
+            if (this.Classification != other.Classification) return false;
+            if (this.CreatedByGuid != other.CreatedByGuid) return false;
+            if (this.CreatedOn != other.CreatedOn) return false;
+            if (this.DestinationTable != other.DestinationTable) return false;
+            if (!this.Extractors.Matches(other.Extractors)) return false;
+            if (!this.IdentifyCharacters.Matches(other.IdentifyCharacters)) return false;
+            if (!this.IdentifyCharactersUpSideDown.Matches(other.IdentifyCharactersUpSideDown)) return false;
+            if (this.ImageName != other.ImageName) return false;
+            if (this.Name != other.Name) return false;
+            if (!this.RectanglePixels.Matches(other.RectanglePixels)) return false;
+            if (this.Type != other.Type) return false;
+            if (this.RepeatMaximum != other.RepeatMaximum) return false;
+
             return true;
         }
     }
