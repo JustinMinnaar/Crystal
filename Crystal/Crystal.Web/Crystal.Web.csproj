@@ -206,6 +206,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\Auth.cs" />
+    <Compile Include="Models\Profile.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -222,9 +224,7 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="App_Data\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="packages.config" />
   </ItemGroup>
@@ -236,6 +236,10 @@
     <ProjectReference Include="..\Crystal.Profiler.Provider\Crystal.Profiler.Provider.csproj">
       <Project>{2cd0fdde-6149-466b-9e71-96d7635afd64}</Project>
       <Name>Crystal.Profiler.Provider</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Profiler\Crystal.Profiler.Adapter.FileSystem\Crystal.Profiler.Adapter.FileSystem.csproj">
+      <Project>{3CC70580-14D6-4F49-9C86-978C0A3F021D}</Project>
+      <Name>Crystal.Profiler.Adapter.FileSystem</Name>
     </ProjectReference>
     <ProjectReference Include="..\Profiler\Crystal.Profiler.Adapter\Crystal.Profiler.Adapter.csproj">
       <Project>{4180CA9B-6F4C-48A7-ABB2-575A5451EF04}</Project>
