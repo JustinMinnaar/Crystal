@@ -4,6 +4,7 @@ using Crystal.Profiler.Data;
 using System.Collections.Generic;
 using Crystal.Provider.Adapter.FileSystem;
 using Crystal.Core;
+using System.IO;
 
 namespace Crystal.Profiler.Adapter.FileSystem.UnitTests
 {
@@ -13,7 +14,13 @@ namespace Crystal.Profiler.Adapter.FileSystem.UnitTests
         [TestMethod]
         public void CanListProfiles()
         {
-            Assert.Fail();
+            ICyProfileAdapter adapter = new CyProfileAdapterFileSystem(".");
+
+           var list = adapter.ListProfiles();
+
+            var expectedNames = Directory.GetFiles(".", CyProfileAdapterFileSystem.ext);
+
+            Assert.AreEqual(expectedNames.Length, list.Count);
         }
 
         [TestMethod]

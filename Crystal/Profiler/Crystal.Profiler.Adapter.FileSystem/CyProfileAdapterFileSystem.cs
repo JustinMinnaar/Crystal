@@ -13,9 +13,9 @@ namespace Crystal.Provider.Adapter.FileSystem
 {
     public class CyProfileAdapterFileSystem : ICyProfileAdapter
     {
-        protected string folder;
-        private string ext = ".crystalprofile";
-        private FileFormat format;
+        public readonly string folder;
+        public static readonly string ext = ".crystalprofile";
+        public readonly FileFormat format;
 
         /// <summary>Stores the profiles in a specific folder using their names.</summary>
         /// <param name="folder"></param>
