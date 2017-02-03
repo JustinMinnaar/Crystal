@@ -9,7 +9,7 @@ using Crystal.Provider.Adapter.FileSystem;
 using Newtonsoft.Json;
 
 namespace Crystal.Web.Controllers {
-  public class ValuesController : ApiController {
+  public class ProfileController : ApiController {
     private static ICyProfileAdapter adapter = new CyProfileAdapterFileSystem("C:/storage/", FileFormat.Xml);
     static CProfileProvider CProfileProviderInstance = new CProfileProvider(adapter);
 
