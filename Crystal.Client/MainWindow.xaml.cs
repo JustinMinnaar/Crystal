@@ -13,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace Crystal.Client
 {
@@ -21,16 +22,38 @@ namespace Crystal.Client
     /// </summary>
     public partial class MainWindow : Window
     {
+        private CrystalStuff stuff;
+        private Dispatcher d;
+
         public MainWindow()
         {
             InitializeComponent();
+            InitializeDispatcher();
             InitialiseListOfStuff();
+        }
+
+        protected override void OnClosed(EventArgs e)
+        {
+            d = null;
+            base.OnClosed(e);
+        }
+
+        private void InitializeDispatcher()
+        {
+            d = Dispatcher.CurrentDispatcher;
         }
 
         private void InitialiseListOfStuff()
         {
-            var stuff = new CrystalStuff();
+            stuff = new CrystalStuff();
             lstTypes.ItemsSource = stuff.Types;
+        }
+
+        private void txtSearch_Search(object sender, string text)
+        {
+            if (d == null) return;
+            var result = from t in stuff.Types where t.Contains(text) orderby t select t;
+            d?.Invoke(delegate { lstTypes.ItemsSource = result; });
         }
     }
 }

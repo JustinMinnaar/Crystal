@@ -13,6 +13,7 @@
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
         <DockPanel x:Name="pnlLeft" Background="LightSlateGray" Grid.Column="0">
+            <local:SearchTextBox x:Name="txtSearch" Search="txtSearch_Search" DockPanel.Dock="Top" />
             <ListBox x:Name="lstTypes" />
         </DockPanel>
         <GridSplitter Background="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" Focusable="False" />
