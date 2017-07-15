@@ -12,7 +12,9 @@
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="3*" />
         </Grid.ColumnDefinitions>
-        <DockPanel x:Name="pnlLeft" Background="LightSlateGray" Grid.Column="0" />
+        <DockPanel x:Name="pnlLeft" Background="LightSlateGray" Grid.Column="0">
+            <ListBox x:Name="lstTypes" />
+        </DockPanel>
         <GridSplitter Background="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" Focusable="False" />
         <DockPanel x:Name="pnlRight" Background="Black" Grid.Column="1" />
     </Grid>

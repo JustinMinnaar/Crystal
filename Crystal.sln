@@ -5,6 +5,10 @@ VisualStudioVersion = 15.0.26430.12
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Client", "Crystal.Client\Crystal.Client.csproj", "{95757997-57AA-499E-87B0-CB481FBAE2C5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Data.UnitTests", "Crystal.Data.UnitTests\Crystal.Data.UnitTests.csproj", "{834EA4F4-6257-4499-9D10-13778DD9C0AD}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Crystal.Data", "Crystal.Data\Crystal.Data.csproj", "{BF529A16-14C6-4E25-BB1B-E3CCF2FD46B9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{95757997-57AA-499E-87B0-CB481FBAE2C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{95757997-57AA-499E-87B0-CB481FBAE2C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{95757997-57AA-499E-87B0-CB481FBAE2C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{834EA4F4-6257-4499-9D10-13778DD9C0AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{834EA4F4-6257-4499-9D10-13778DD9C0AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{834EA4F4-6257-4499-9D10-13778DD9C0AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{834EA4F4-6257-4499-9D10-13778DD9C0AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF529A16-14C6-4E25-BB1B-E3CCF2FD46B9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF529A16-14C6-4E25-BB1B-E3CCF2FD46B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF529A16-14C6-4E25-BB1B-E3CCF2FD46B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF529A16-14C6-4E25-BB1B-E3CCF2FD46B9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

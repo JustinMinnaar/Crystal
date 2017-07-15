@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Crystal.Data;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -23,6 +24,13 @@ namespace Crystal.Client
         public MainWindow()
         {
             InitializeComponent();
+            InitialiseListOfStuff();
+        }
+
+        private void InitialiseListOfStuff()
+        {
+            var stuff = new CrystalStuff();
+            lstTypes.ItemsSource = stuff.Types;
         }
     }
 }
