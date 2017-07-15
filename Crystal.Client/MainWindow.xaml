@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Crystal.Client"
         mc:Ignorable="d"
-        Title="MainWindow" Height="350" Width="525">
+        WindowStartupLocation="CenterScreen"
+        Title="MainWindow" Height="600" Width="800">
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="1*" />
+            <ColumnDefinition Width="3*" />
+        </Grid.ColumnDefinitions>
+        <DockPanel x:Name="pnlLeft" Background="LightSlateGray" Grid.Column="0" />
+        <GridSplitter Background="White" Grid.Column="0" HorizontalAlignment="Right" VerticalAlignment="Stretch" Width="5" Focusable="False" />
+        <DockPanel x:Name="pnlRight" Background="Black" Grid.Column="1" />
     </Grid>
 </Window>
